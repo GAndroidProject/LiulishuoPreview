@@ -24,6 +24,7 @@ public class PreviewVideoView extends VideoView {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+//       seachal： 先测量宽度，根据宽度和宽高比，计算出高度，然后把计算好的宽度、高度值、设置进入。
         int w = MeasureSpec.getSize(widthMeasureSpec);
         setMeasuredDimension(w, (int) (w / 0.56f));
     }

@@ -59,7 +59,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onPageSelected(int position) {
                 mCurrentPage = position;
+                //   onPageSelected中指示器内容切换
                 mIndicator.setSelected(mCurrentPage);
+               //     seachal： 启动循环，第二处，viewPager page变化，也要循环
                 startLoop();
             }
 
@@ -69,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+//      seachal： 启动循环，第一处
         startLoop();
 
     }
@@ -84,6 +87,10 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * 开启轮询
+     *
+     * 视频总长18s,总共3个pager，每个pager播放视频的时长是6s。
+     * interval（） 的第二个参数控制时长，即事件执行6秒后，重新执行call（）的方法。
+     * mVideoView.seekTo（），播放至指定位置可以用VideoView暴露的seekTo(int msec)
      */
     private void startLoop() {
         if (null != mLoop) {
